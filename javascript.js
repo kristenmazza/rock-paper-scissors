@@ -78,4 +78,42 @@ function game() {
 
 }
 
-game();
+// new code below
+
+const choices = document.querySelectorAll(".choices");
+const playerImage = document.getElementById("playerImage");
+choices.forEach(choice => {
+    choice.addEventListener("click", () => {
+        const value = choice.getAttribute("value");
+        playerImage.src = "images/"+value+".png";
+    }
+    )
+})
+
+
+// old code below
+
+// let playerSelection;
+// const rock = document.getElementById('rock');
+
+// rock.addEventListener('click', () => {
+//     playerSelection = "rock";
+//     getComputerChoice();
+//     playRound();
+//     console.log(playerSelection);
+// });
+
+
+
+// game();
+
+
+// 1. Remove logic that plays exactly 5 rounds. 
+//    Instead, first to 5 points.
+// 2. Create three buttons, one for each selection. 
+//    Add an event listener to the buttons that calls 
+//    the playRound function with the correct playerSelection
+//    every time a button is clicked (can keep console.log for this step)
+// 3. Add a div for displaying the results and change all of the console.logs into DOM methods
+// 4. Display the running score, and announce a winner of the game
+//    once player reaches 5 points.

@@ -5,10 +5,13 @@ function getComputerChoice() {
     const generatedNumber = Math.floor((Math.random()*3)+1);
     if (generatedNumber === 1) {
         generatedChoice = "rock";
+        computerImage.src = "images/rock.png";
     } else if (generatedNumber === 2) {
         generatedChoice = "paper";
+        computerImage.src = "images/paper.png";
     } else {
         generatedChoice = "scissors";
+        computerImage.src = "images/scissors.png";
     }
     return generatedChoice;
 }
@@ -51,6 +54,8 @@ function playRound(computerSelection, playerSelection) {
 function game() {
 
 
+
+
     for (let round = 0; round < 5; round++) {
     //    const computerSelection = getComputerChoice();
     //    const playerSelection = playerClick();
@@ -82,7 +87,6 @@ choices.forEach((choice) => {
 
         let playerSelection;
         const computerSelection = getComputerChoice();
-        console.log("Computer selects: " + computerSelection);
 
         // Assign rock, paper, or scissors to playerSelection based on click input
         if (value === "rock") {
@@ -95,8 +99,6 @@ choices.forEach((choice) => {
         
         // Determine winner of round
         roundResult = playRound(computerSelection, playerSelection);
-
-        console.log("Player selects: " + playerSelection);
         console.log(roundResult);
 
         const playerNumber = document.querySelector('#playerNumber');
@@ -104,7 +106,9 @@ choices.forEach((choice) => {
 
         const computerNumber = document.querySelector('#computerNumber');
         computerNumber.innerText = computerScore;
-        
+
+        const results = document.querySelector('#results')
+        results.innerText = roundResult;
     }
     )
 })

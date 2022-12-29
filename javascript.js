@@ -13,16 +13,6 @@ function getComputerChoice() {
     return generatedChoice;
 }
 
-function getPlayerChoice() {
-    let playerChoice = prompt("Choose rock, paper, or scissors", "");
-    playerChoice = playerChoice.toLowerCase();
-    while ((playerChoice != "rock") && (playerChoice != "paper") && (playerChoice != "scissors")) {
-        playerChoice = prompt(`"${playerChoice}" is not valid. Please pick rock, paper, or scissors.`)
-        playerChoice = playerChoice.toLowerCase();
-    }
-    return playerChoice;
-}
-
 function playRound(computerSelection, playerSelection) {
 
     if (playerSelection === "rock") {
@@ -58,12 +48,12 @@ function playRound(computerSelection, playerSelection) {
     }
   }
 
-
 function game() {
 
+
     for (let round = 0; round < 5; round++) {
-        const computerSelection = getComputerChoice();
-        const playerSelection = getPlayerChoice();
+    //    const computerSelection = getComputerChoice();
+    //    const playerSelection = playerClick();
         const roundResult = playRound(computerSelection, playerSelection);
         console.log(roundResult);
     }
@@ -82,30 +72,67 @@ function game() {
 
 const choices = document.querySelectorAll(".choices");
 const playerImage = document.getElementById("playerImage");
-choices.forEach(choice => {
+
+choices.forEach((choice) => {
     choice.addEventListener("click", () => {
+        // Change main player image to the selected choice (rock, paper, or scissors)
         const value = choice.getAttribute("value");
         playerImage.src = "images/"+value+".png";
+
+
+        let playerSelection;
+        const computerSelection = getComputerChoice();
+        console.log("Computer selects: " + computerSelection);
+
+        // Assign rock, paper, or scissors to playerSelection based on click input
+        if (value === "rock") {
+            playerSelection = "rock";
+        } else if (value === "paper") {
+            playerSelection = "paper";
+        } else {
+            playerSelection = "scissors";
+        }
+        
+        // Determine winner of round
+        roundResult = playRound(computerSelection, playerSelection);
+
+        console.log("Player selects: " + playerSelection);
+        console.log(roundResult);
+
+        const playerNumber = document.querySelector('#playerNumber');
+        playerNumber.innerText = playerScore;
+
+        const computerNumber = document.querySelector('#computerNumber');
+        computerNumber.innerText = computerScore;
+        
     }
     )
 })
 
 
-// old code below
-
-// let playerSelection;
-// const rock = document.getElementById('rock');
-
-// rock.addEventListener('click', () => {
-//     playerSelection = "rock";
-//     getComputerChoice();
-//     playRound();
-//     console.log(playerSelection);
-// });
-
-
 
 // game();
+
+
+// // Return the value of the button choice clicked
+// const playerClick = function(event) {
+//     const value = event.currentTarget.getAttribute("value"); 
+// //     console.log(value);
+// //     return value;
+//     playRound(value);
+// }
+
+// Add event listeners to each button for rock, paper, and scissors
+// const rockChoice = document.querySelector('.rock');
+// rockChoice.addEventListener('click', playerClick);
+
+// const paperChoice = document.querySelector('.paper');
+// paperChoice.addEventListener('click', playerClick);
+
+// const scissorsChoice = document.querySelector('.scissors');
+// scissorsChoice.addEventListener('click', playerClick);
+
+
 
 
 // 1. Remove logic that plays exactly 5 rounds. 

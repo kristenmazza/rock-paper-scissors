@@ -1,3 +1,7 @@
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: sans-serif, 'Tahoma', 'Open Sans';
     display: flex;
@@ -44,9 +48,13 @@ body {
     align-items: center;
     gap: 0px;
 }
+.section-two {
+    flex: 1 0 auto;
+}
 
 .section-three {
     background-color:rgb(216, 202, 202);
+    flex: 1 0 auto;
 }
 
 .choices-text {
@@ -68,14 +76,23 @@ body {
 
 .choices {
     cursor: pointer;
+    background-color:rgb(216, 202, 202);
+    border: none;
+    transition: all .1s ease-in-out;
+}
+
+.choices:hover {
+    transform: scale(1.05);
 }
 
 .section-four {
     background-color:#442020;
     padding: 30px 0px;
+    flex-shrink: 0;
 }
 
 .footer-text {
     color:rgb(247, 244, 244);
     font-size: 14px;
 }
+

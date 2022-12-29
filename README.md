@@ -1,1 +1,5 @@
-# rock-paper-scissors
+# Rock Paper Scissors
+
+Rock paper scissors game in which you play against the computer. This game was created with HTML, CSS, and JavaScript. 
+
+[Live Demo](https://kristenmazza.github.io/rock-paper-scissors/) :point_left:

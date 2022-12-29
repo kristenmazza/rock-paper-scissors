@@ -51,29 +51,24 @@ function playRound(computerSelection, playerSelection) {
     }
   }
 
-function game() {
+function endGame() {
+    const popup = document.querySelector('#popup');
+    const finalResult = document.querySelector('#finalResult')
+    if (playerScore === 5){
+        finalResult.innerText = `You won the game! \n Your score: ${playerScore}. Computer score: ${computerScore}`;;
+        document.getElementById("rock").disabled = true;
+        document.getElementById("paper").disabled = true;
+        document.getElementById("scissors").disabled = true;
+        document.getElementById("popup").style.visibility="visible";
 
-
-
-
-    for (let round = 0; round < 5; round++) {
-    //    const computerSelection = getComputerChoice();
-    //    const playerSelection = playerClick();
-        const roundResult = playRound(computerSelection, playerSelection);
-        console.log(roundResult);
-    }
-
-    if (computerScore > playerScore) {
-        console.log(`You lose. Your score is: ${playerScore}. Computer\'s score is: ${computerScore}.`);
-    } else if (playerScore > computerScore) {
-        console.log(`You win. Your score is: ${playerScore}. Computer\'s score is: ${computerScore}.`);
-    } else {
-        console.log(`It's a tie. Your score is: ${playerScore}. Computer\'s score is: ${computerScore}.`);
-    }
-
+    } else if (computerScore === 5){
+        finalResult.innerText = `You lost the game! \n Your score: ${playerScore}. Computer score: ${computerScore}`;
+        document.getElementById("rock").disabled = true;
+        document.getElementById("paper").disabled = true;
+        document.getElementById("scissors").disabled = true;
+        document.getElementById("popup").style.visibility="visible";
+    } 
 }
-
-// new code below
 
 const choices = document.querySelectorAll(".choices");
 const playerImage = document.getElementById("playerImage");
@@ -83,7 +78,6 @@ choices.forEach((choice) => {
         // Change main player image to the selected choice (rock, paper, or scissors)
         const value = choice.getAttribute("value");
         playerImage.src = "images/"+value+".png";
-
 
         let playerSelection;
         const computerSelection = getComputerChoice();
@@ -99,52 +93,40 @@ choices.forEach((choice) => {
         
         // Determine winner of round
         roundResult = playRound(computerSelection, playerSelection);
-        console.log(roundResult);
 
+        // Update scoreboard
         const playerNumber = document.querySelector('#playerNumber');
         playerNumber.innerText = playerScore;
 
         const computerNumber = document.querySelector('#computerNumber');
         computerNumber.innerText = computerScore;
 
+        // Display winner of round
         const results = document.querySelector('#results')
         results.innerText = roundResult;
+
+        endGame();
     }
     )
 })
 
+function togglePopup() {
+    document.getElementById("popup").style.visibility="hidden";
+    resetGame();
+}
 
+function resetGame() {
+    playerScore = 0;
+    computerScore = 0;
+    const playerNumber = document.querySelector('#playerNumber');
+    playerNumber.innerText = playerScore;
 
-// game();
+    const computerNumber = document.querySelector('#computerNumber');
+    computerNumber.innerText = computerScore;
 
+    results.innerText = "FIRST TO 5 WINS";
 
-// // Return the value of the button choice clicked
-// const playerClick = function(event) {
-//     const value = event.currentTarget.getAttribute("value"); 
-// //     console.log(value);
-// //     return value;
-//     playRound(value);
-// }
-
-// Add event listeners to each button for rock, paper, and scissors
-// const rockChoice = document.querySelector('.rock');
-// rockChoice.addEventListener('click', playerClick);
-
-// const paperChoice = document.querySelector('.paper');
-// paperChoice.addEventListener('click', playerClick);
-
-// const scissorsChoice = document.querySelector('.scissors');
-// scissorsChoice.addEventListener('click', playerClick);
-
-
-
-
-// 1. Remove logic that plays exactly 5 rounds. 
-//    Instead, first to 5 points.
-// 2. Create three buttons, one for each selection. 
-//    Add an event listener to the buttons that calls 
-//    the playRound function with the correct playerSelection
-//    every time a button is clicked (can keep console.log for this step)
-// 3. Add a div for displaying the results and change all of the console.logs into DOM methods
-// 4. Display the running score, and announce a winner of the game
-//    once player reaches 5 points.
+    document.getElementById("rock").disabled = false;
+    document.getElementById("paper").disabled = false;
+    document.getElementById("scissors").disabled = false;
+}

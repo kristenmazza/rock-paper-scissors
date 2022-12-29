@@ -19,7 +19,7 @@ body {
 }
 
 .section-one {
-    background-color: #442020;
+    background-color: #5b2222;
 }
 
 .title {
@@ -78,15 +78,14 @@ body {
     cursor: pointer;
     background-color:rgb(216, 202, 202);
     border: none;
-    transition: all .1s ease-in-out;
 }
 
 .choices:hover {
-    transform: scale(1.05);
-}
+    transform: scale(1.05); 
+} 
 
 .section-four {
-    background-color:#442020;
+    background-color:#5b2222;
     padding: 30px 0px;
     flex-shrink: 0;
 }
@@ -96,3 +95,52 @@ body {
     font-size: 14px;
 }
 
+#results {
+    font-size: 20px;
+}
+
+#popup {
+    position: absolute;
+    z-index: 101;
+    width: 600px;
+    height: 200px;
+    top: 50%;
+    left: 50%;
+    margin-left:-300px;
+    margin-top:-100px;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    border-radius: 10px 10px 10px 10px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.flex-container-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#playAgain {
+    background-color: rgba(255, 255, 255, 0.9); 
+    border: none;
+    color: #000;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin-bottom:30px;
+    cursor: pointer;
+    border-radius: 6px 6px 6px 6px;
+}
+
+#playAgain:hover {
+    background-color: rgb(218, 218, 218); 
+    color: #000;
+  }
+
+.hidden {
+    display: none;
+}

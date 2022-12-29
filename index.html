@@ -10,6 +10,10 @@
 </head>
 
 <body>
+    <div id="popup" class="flex-container-center" style="visibility:hidden">
+        <p id="finalResult"></p>
+        <button id="playAgain" onclick="togglePopup()">Play Again</button>
+    </div>
     <div class="section-one">
         <div class="container">
             <h1 class="title">ROCK PAPER SCISSORS</h1>
@@ -18,11 +22,11 @@
     <div class="section-two">
         <div class="container">
             <div class="results-section">
-                <div id="results">First to 5 wins!</div>
+                <div id="results">FIRST TO 5 WINS!</div>
                 <div class="selections">
                     <div class="box">
                         <img id="playerImage" src="images/question-mark.png" alt="Question mark">
-                        <div id="playerScore">Player Score:</div>
+                        <div id="playerScore">Your Score:</div>
                         <div id="playerNumber">0</div>
                     </div>
                     <div class="box">
@@ -49,7 +53,7 @@
     <div class="section-four">
         <div class="container">
             <div class="footer">
-                <div class=footer-text>copyright © kristenmazza</div>
+                <div class=footer-text>created by: kristenmazza</div>
             </div>
         </div>
     </div>

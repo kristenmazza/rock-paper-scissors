@@ -119,6 +119,7 @@ body {
 
 /* Pop-up */
 #popup {
+    z-index: 2; 
     position: absolute;
     width: 40%;
     height: 25%;

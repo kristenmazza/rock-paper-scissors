@@ -55,14 +55,14 @@ function endGame() {
     const popup = document.querySelector('#popup');
     const finalResult = document.querySelector('#finalResult')
     if (playerScore === 5){
-        finalResult.innerText = `You won the game! \n Your score: ${playerScore}. Computer score: ${computerScore}`;;
+        finalResult.innerText = `You won the game! \n Your score: ${playerScore}. \n Computer score: ${computerScore}`;;
         document.getElementById("rock").disabled = true;
         document.getElementById("paper").disabled = true;
         document.getElementById("scissors").disabled = true;
         document.getElementById("popup").style.visibility="visible";
 
     } else if (computerScore === 5){
-        finalResult.innerText = `You lost the game! \n Your score: ${playerScore}. Computer score: ${computerScore}`;
+        finalResult.innerText = `You lost the game! \n Your score: ${playerScore}. \n Computer score: ${computerScore}`;
         document.getElementById("rock").disabled = true;
         document.getElementById("paper").disabled = true;
         document.getElementById("scissors").disabled = true;
